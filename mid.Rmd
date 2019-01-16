@@ -1,0 +1,27 @@
+---
+title: "Untitled"
+author: "Jaehwan Lim"
+date: "January 15, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+
+mid_dispute <- read_csv("MIDA_4.2.csv")
+mid_participant <- read_csv("MIDB_4.2.csv")
+
+theme_set(theme_light())
+
+```
+
+```{r}
+mid_participant %>% 
+  filter(stabb == "CHN", styear > 1950)
+
+```
+
