@@ -19,19 +19,20 @@ theme_set(theme_light())
 
 ```
 
-## Which countries have been more likely to be involved in MID over time?
+## Which countries have been more involved in MID over time?
 
 ```{r}
 mid_participant %>% 
   select(styear, stabb) %>% 
   add_count(stabb) %>% 
-  filter(n > 150) %>% 
-  group_by(styear) %>% 
+  filter(styear > 1900, n > 150) %>% 
+  group_by(styear = 10 * (styear %/% 10)) %>% 
   count(stabb) %>% 
   ggplot(aes(x = styear, y = nn)) +
   geom_line() +
-  facet_wrap(~ stabb)
-
-
+  facet_wrap(~ stabb) + 
+  labs(title = "Conflict-stricken countries over time", 
+       x = "Year", 
+       y = "# of MIDs")
 ```
 
