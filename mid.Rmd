@@ -19,6 +19,12 @@ theme_set(theme_light())
 
 ```
 
+```{r}
+mid_participant %>% 
+  count(ccode, sort = T)
+
+```
+
 ## Which countries have been more involved in MID over time?
 
 ```{r}
